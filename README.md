@@ -95,7 +95,7 @@ A REST API was built using Flask.
   "MonthlyCharges": 70.5,
   "TotalCharges": 845.0
 }
-
+}
 ### Sample output:
 {
   "prediction": "Churn"

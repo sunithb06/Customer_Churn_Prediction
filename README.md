@@ -95,13 +95,13 @@ A REST API was built using Flask.
   "MonthlyCharges": 70.5,
   "TotalCharges": 845.0
 }
-}
-### Sample output:
+
+## Sample output:
 {
   "prediction": "Churn"
 }
 
-### Technologies Used
+## Technologies Used
 Python
 pandas
 numpy 

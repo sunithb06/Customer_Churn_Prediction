@@ -1,78 +1,130 @@
-Customer Churn Prediction – AI Assignment
+# Customer Churn Prediction – AI Assignment
 
-## Project Overview
-This project predicts whether a customer will churn based on historical customer data.
-The solution includes data preprocessing, machine learning model training, evaluation,
-and deployment using a Flask REST API.
+**Author:** Sunith B
+**Program:** M.Tech – Artificial Intelligence and Data Science
 
 ---
 
-## Dataset
-- Dataset: Telco Customer Churn
-- Source: Kaggle
-- Target Variable: `Churn`
-  - Yes → 1
-  - No → 0
+## 1. Project Overview
+
+This project focuses on predicting whether a customer is likely to churn (leave the service) based on historical customer data. The solution demonstrates an end-to-end machine learning pipeline, including data preprocessing, model training, evaluation, and deployment through a Flask-based REST API.
+
+The goal is to build a **stable, interpretable, and deployable** churn prediction system suitable for real-world business applications.
 
 ---
 
-## Task 1: Data Preprocessing
-- Dropped irrelevant identifier column (`customerID`)
-- Handled missing values
-- Converted `TotalCharges` to numeric
-- Encoded target variable
-- Applied:
-  - StandardScaler for numerical features
-  - OneHotEncoder for categorical features
+## 2. Dataset
+
+* **Dataset Name:** Telco Customer Churn
+* **Source:** Kaggle
+* **Target Variable:** `Churn`
+
+  * `Yes` → 1
+  * `No` → 0
+
+The dataset contains customer demographic information, account details, and service usage patterns.
 
 ---
 
-## Task 2: Model Building
+## 3. Task 1: Data Preprocessing
+
+The following preprocessing steps were applied to prepare the data for modeling:
+
+* Dropped irrelevant identifier column: `customerID`
+* Handled missing values appropriately
+* Converted `TotalCharges` from string to numeric format
+* Encoded the target variable (`Churn`) into binary values
+
+### Feature Transformation
+
+* **Numerical Features:** Scaled using `StandardScaler`
+* **Categorical Features:** Encoded using `OneHotEncoder`
+
+These steps ensured that all features were in a suitable format for machine learning algorithms.
+
+---
+
+## 4. Task 2: Model Building
+
 Two machine learning models were trained and evaluated:
 
-### Logistic Regression (Final Model)
-- Stable and interpretable
-- Handles class imbalance using `class_weight="balanced"`
-- Selected for deployment
+### 4.1 Logistic Regression (Final Model)
 
-### Decision Tree (Comparison Model)
-- Captures non-linear relationships
-- Used only for performance comparison
+* Simple and highly interpretable
+* Stable during deployment
+* Handles class imbalance using `class_weight="balanced"`
+* Selected as the **final model** for deployment
 
-### Evaluation Metrics
-- Accuracy
-- Precision
-- Recall
-- F1-score
+### 4.2 Decision Tree (Comparison Model)
+
+* Captures non-linear relationships
+* Used only for performance comparison
+* Not selected for deployment due to lower stability
 
 ---
 
-## Task 3: Model Explanation
-**Why Logistic Regression?**
-- Simple and interpretable
-- Stable during deployment
-- Performs well on tabular data
+## 5. Model Evaluation
 
-**Feature Impact**
-- Tenure, MonthlyCharges, Contract type, and Internet services
-  strongly influence churn prediction.
+The models were evaluated using the following metrics:
 
-**Future Improvements**
-- Hyperparameter tuning
-- Try Gradient Boosting models
-- Add SHAP for explainability
-- Deploy using Docker or cloud services
+* Accuracy
+* Precision
+* Recall
+* F1-score
+
+### Logistic Regression Performance
+
+The Logistic Regression model showed consistent and reliable performance and was selected as the final model.
+
+```
+Accuracy : 0.7381
+Precision: 0.5043
+Recall   : 0.7834
+F1-score : 0.6136
+```
 
 ---
 
-## Task 4: API Creation (Flask)
-A REST API was built using Flask.
+## 6. Task 3: Model Explanation
 
-### Endpoints:
-- `GET /` → Health check
-- `POST /predict` → Returns churn prediction
+### Why Logistic Regression?
 
-### Sample Input (JSON):
+* Easy to interpret and explain to stakeholders
+* Less prone to overfitting on tabular data
+* Performs well for binary classification problems
+* Suitable for real-time API-based deployment
+
+### Feature Impact
+
+Key features influencing churn prediction include:
+
+* Customer tenure
+* Monthly charges
+* Contract type
+* Internet service type
+
+These features strongly affect a customer’s likelihood of churning.
+
+### Future Improvements
+
+* Hyperparameter tuning
+* Experiment with Gradient Boosting models (XGBoost, LightGBM)
+* Add SHAP for better explainability
+* Deploy using Docker or cloud platforms (AWS, GCP, Azure)
+
+---
+
+## 7. Task 4: API Creation (Flask)
+
+A RESTful API was developed using Flask to serve the trained model.
+
+### API Endpoints
+
+* `GET /` → Health check
+* `POST /predict` → Returns churn prediction
+
+### Sample Input (JSON)
+
 ```json
 {
   "gender": "Male",
@@ -95,46 +147,33 @@ A REST API was built using Flask.
   "MonthlyCharges": 70.5,
   "TotalCharges": 845.0
 }
+```
 
-## Sample output:
+### Sample Output
+
+```json
 {
   "prediction": "Churn"
 }
-
-## Technologies Used
-Python
-pandas
-numpy 
-scikit-learn 
-Flask
-joblib 
-requests
+```
 
 ---
 
-## Model Evaluation Results
+## 8. Technologies Used
 
-### Logistic Regression Performance
-
-The Logistic Regression model was selected as the **final model for testing and deployment**
-due to its stability, interpretability, and consistent performance.
-
-```text
-Accuracy : 0.7381
-Precision: 0.5043
-Recall   : 0.7834
-F1-score : 0.6136
+* Python
+* pandas
+* numpy
+* scikit-learn
+* Flask
+* joblib
+* requests
 
 ---
 
-## Conclusion
+## 9. Conclusion
 
-This project demonstrates an end-to-end machine learning workflow, starting from
-data preprocessing and model training to deployment using a Flask REST API.
-The implemented solution is stable, interpretable, and suitable for real-world
-customer churn prediction use cases.
+This project successfully demonstrates a complete machine learning workflow, from data preprocessing and model training to evaluation and deployment using a Flask REST API. The final solution is interpretable, stable, and suitable for real-world customer churn prediction scenarios.
 
----
+All assignment tasks, namely **Task 1, Task 2, Task 3, Task 4, and Task 5**, have been successfully completed as per the given requirements.
 
-**Sunith B**  
-M.Tech – Artificial Intelligence and Data Science

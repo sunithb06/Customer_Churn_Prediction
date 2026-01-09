@@ -1,0 +1,18 @@
+### Logistic Regression Model Explanation
+
+Logistic Regression is a widely used supervised learning algorithm for binary
+classification problems. In this project, it is used to predict whether a
+customer is likely to churn (`Yes` or `No`) based on historical customer data.
+The model estimates the probability of churn by learning the relationship
+between input features and the target variable using a logistic (sigmoid)
+function. It works efficiently with both numerical and categorical features
+when combined with proper preprocessing techniques such as feature scaling
+and one-hot encoding.
+
+Logistic Regression was chosen as the final model for testing and deployment
+because of its stability, interpretability, and consistent performance on
+tabular datasets. Unlike more complex models, it is less prone to overfitting,
+easier to debug during deployment, and provides reliable predictions in
+production environments. Additionally, its simplicity makes it suitable for
+real-time API-based predictions, which aligns well with the project
+requirements.
